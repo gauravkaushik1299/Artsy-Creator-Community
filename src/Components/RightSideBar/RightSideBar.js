@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./RightSideBar.css";
 
-const RightSidebar = () => {
+const RightSidebar = ({ onMessage = () => {} }) => {
   // Manage which tab is active
   const [activeTab, setActiveTab] = useState("artists");
 
@@ -137,6 +137,7 @@ const RightSidebar = () => {
               />
               {item.online && <div className="status-indicator online"></div>}
             </div>
+            <button className="profile-message" onClick={onMessage} aria-label={`Message ${item.name}`}>↗</button>
           </div>
         ))}
       </div>
